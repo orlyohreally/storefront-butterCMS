@@ -1,7 +1,7 @@
 {
-  "name": "netlify-express",
+  "name": "netlify-angular",
   "version": "0.0.1",
-  "description": "Example of how to deploy a Express.js Netlify app.",
+  "description": "Shopify StoreFront integrated with ButterCMS",
   "main": "functions/server.js",
   "scripts": {
     "build": "cd client && npm install && ng build --prod && cd ../ && netlify-lambda build express",
@@ -9,20 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neverendingqs/netlify-express.git"
+    "url": "git+https://github.com/orlyohreally/netlify-angular.git"
   },
   "keywords": [
     "netlify",
+    "angular",
     "express.js"
   ],
   "author": "neverendingqs",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/neverendingqs/netlify-express/issues"
+    "url": "https://github.com/orlyohreally/netlify-angular/issues"
   },
-  "homepage": "https://github.com/neverendingqs/netlify-express#readme",
+  "homepage": "https://github.com/orlyohreally/netlify-angular#readme",
   "dependencies": {
-    "prerender-node": "^3.2.5"
+    "dotenv": "^8.2.0",
+    "graphql-request": "^1.8.2",
+    "prerender-node": "^3.2.5",
+    "request-promise": "^4.2.5",
+    "shopify-hmac-validation": "^1.0.4"
   },
   "devDependencies": {
     "@angular/cli": "~10.0.0",
