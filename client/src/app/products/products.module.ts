@@ -7,6 +7,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductComponent } from './product/product.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [ProductsComponent, ProductComponent],
@@ -15,6 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     ProductsRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
     SharedModule,
   ],
 })

@@ -91,6 +91,14 @@ router.post(
   }
 );
 
+router.post("/create-multipass", (req, res) => {
+  const { email } = req.body.user;
+  console.log("send", shopifyService.createMultipass({ email }));
+  res
+    .status(200)
+    .json({ url: shopifyService.createMultipass({ email }).toString() });
+});
+
 app.use(apiRoute, router);
 
 module.exports = app;

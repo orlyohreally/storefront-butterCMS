@@ -12,10 +12,7 @@
         <h4 class="product__title">{{ product.node.title }}</h4>
       </a>
       <div class="product__price">
-        {{
-          product.node.variants.edges[0].node.priceV2.amount
-            | currency: product.node.variants.edges[0].node.priceV2.currencyCode
-        }}
+        {{ product.node.priceRange | priceRange }}
       </div>
     </div>
   </div>

@@ -30,7 +30,8 @@
         "main",
         "shared",
         "product",
-        "page"
+        "page",
+        "cart"
       ],
       "kebab-case"
     ],

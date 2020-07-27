@@ -1,4 +1,5 @@
 const { GraphQLClient } = require("graphql-request");
+var Multipassify = require("multipassify");
 
 class ShopifyService {
   constructor() {
@@ -31,6 +32,18 @@ class ShopifyService {
       throw response.error;
     }
     return response.productByHandle.priceRange;
+  }
+
+  createMultipass(customerData) {
+    const multipassify = new Multipassify(process.env.MULTIPASS_SECRET);
+
+    console.log({ secret: process.env.MULTIPASS_SECRET }, customerData);
+    const domain = process.env.SHOP_URL.match(/http(s?):\/\/(.*)\//)[2];
+    // Generate a Shopify multipass URL to your shop
+    const url = multipassify.generateUrl(customerData, domain);
+    const token = multipassify.encode(customerData);
+    console.log("generated url", url);
+    return { url, token };
   }
 }
 

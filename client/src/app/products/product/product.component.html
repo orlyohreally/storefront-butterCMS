@@ -35,11 +35,8 @@
         />
         <div>
           <div class="product-variant__characteristics">
-            <b>Price</b>:
-            {{
-              variant.node.priceV2.amount
-                | currency: variant.node.priceV2.currencyCode
-            }}
+            <b>Price</b>: {{ variant.node.priceV2.amount }}
+            {{ variant.node.priceV2.currencyCode }}
           </div>
           <div
             *ngFor="let option of variant.node.selectedOptions"
@@ -49,8 +46,24 @@
             {{ option.value }}
           </div>
 
-          <div fxLayoutAlign="center center" class="product-variant__actions">
-            <button mat-raised-button (click)="addToCart(variant.node.id)">
+          <div
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            class="product-variant__actions"
+          >
+            <shared-item-number-picker
+              class="item-number-picker"
+              [defaultNumber]="1"
+              (changedItemNumber)="onChangedItemNumber(variant.node.id, $event)"
+            >
+            </shared-item-number-picker>
+            <button
+              mat-raised-button
+              [sharedAddToCart]="variant.node"
+              [productHandle]="productData.handle"
+              [productTitle]="productData.title"
+              [productQuantity]="productQuantity[variant.node.id]"
+            >
               Add to cart
             </button>
           </div>

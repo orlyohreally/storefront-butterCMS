@@ -11,6 +11,7 @@
 
 .banner-content {
   z-index: 20;
+  padding: 20px;
 }
 
 .banner-content__action-button {
@@ -18,8 +19,13 @@
   color: #ffffff;
 }
 
+.banner-content__title {
+  text-align: center;
+}
+
 .banner-content__description {
   padding: 20px;
+  text-align: center;
 }
 
 .promotional-products__headline {

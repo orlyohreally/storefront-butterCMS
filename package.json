@@ -25,6 +25,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "graphql-request": "^1.8.2",
+    "multipassify": "^1.1.0",
     "prerender-node": "^3.2.5",
     "request-promise": "^4.2.5",
     "shopify-hmac-validation": "^1.0.4"

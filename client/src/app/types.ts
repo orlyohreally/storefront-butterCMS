@@ -5,14 +5,12 @@ export interface Product {
     description: string;
     handle: string;
     images: { edges: { node: { altText: string; transformedSrc: string } }[] };
+    priceRange: PriceRange;
     variants: {
       edges: {
         node: {
           id: string;
-          priceV2: {
-            amount: string;
-            currencyCode: string;
-          };
+          priceV2: Price;
         };
       }[];
     };
@@ -33,6 +31,20 @@ export interface Products {
   };
 }
 
+export interface ProductVariant {
+  id: string;
+  title: string;
+  selectedOptions: {
+    name: string;
+    value: string;
+  }[];
+  priceV2: Price;
+  image: {
+    altText: string;
+    transformedSrc: string;
+  };
+}
+
 export interface ProductData {
   productByHandle: {
     id: string;
@@ -41,6 +53,7 @@ export interface ProductData {
     descriptionHtml: string;
     tags: string[];
     handle: string;
+    priceRange: PriceRange;
     images: {
       edges: {
         node: {
@@ -51,22 +64,7 @@ export interface ProductData {
     };
     variants: {
       edges: {
-        node: {
-          id: string;
-          title: string;
-          selectedOptions: {
-            name: string;
-            value: string;
-          }[];
-          priceV2: {
-            amount: string;
-            currencyCode: string;
-          };
-          image: {
-            altText: string;
-            transformedSrc: string;
-          };
-        };
+        node: ProductVariant;
       }[];
     };
   };
@@ -102,4 +100,23 @@ export interface PromotionalProduct {
   image_alt: string;
   description: string;
   price: string;
+}
+
+export interface PriceRange {
+  minVariantPrice: Price;
+  maxVariantPrice: Price;
+}
+
+export interface CartItem {
+  [productId: string]: {
+    handle: string;
+    title: string;
+    product: ProductVariant;
+    quantity: number;
+  };
+}
+
+interface Price {
+  amount: string;
+  currencyCode: string;
 }

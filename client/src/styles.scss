@@ -20,9 +20,22 @@ body {
 }
 
 a {
-  color: #757575;
+  color: inherit;
 }
 
 a:visited {
-  color: #757575;
+  color: inherit;
+}
+
+.mat-menu-content {
+  padding: 0 !important;
+}
+
+.display_block {
+  display: block;
+}
+
+.mat-menu-panel {
+  min-height: unset !important;
+  padding: 0;
 }
