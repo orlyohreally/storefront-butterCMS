@@ -16,8 +16,8 @@
     "angular",
     "express.js"
   ],
-  "author": "neverendingqs",
-  "license": "Apache-2.0",
+  "author": "Orly Knop",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/orlyohreally/netlify-angular/issues"
   },
